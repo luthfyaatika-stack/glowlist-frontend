@@ -1,0 +1,2 @@
+//tentang .jsx//
+export

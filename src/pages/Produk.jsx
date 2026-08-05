@@ -15,7 +15,7 @@ export default function Produk () {
         } finally {
             setLoading(false);
         }
-    };
+    }
 
     useEffect(() => {
         getProduk();

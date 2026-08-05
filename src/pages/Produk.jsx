@@ -7,7 +7,7 @@ export default function Produk () {
 
     const getProduk = async () => {
         try {
-            const res = await fetch("http://localhost:5000/produk");
+            const res = await fetch("http://localhost:3001/produk");
             const data = await res.json();
             setProduk(data);
         } catch (err) {
@@ -19,5 +19,47 @@ export default function Produk () {
 
     useEffect(() => {
         getProduk();
-    }, []);
+    }, [])
+    if (loading) {
+        return <div className="container mt-4">Sedang memuat dataaaaaa</div>;
+    }
+
+
+    return (
+        <div className="container mt-4">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+                <h2>Daftar Produk GlowList💅</h2>
+            </div>
+
+            <table className="table table-bordered table-striped">
+                <thead className="table primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {produk.length > 0 ? (
+                        produk.map((item) => (
+                            <tr key={item.id_produk}>
+                                <td>{item.id_produk}</td>
+                                <td>{item.judul}</td>
+                                <td>{item.deskripsi}</td>
+                                <td>Rp {item.harga}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td colSpan="4" className="text-center">
+                                Belum ada produk kosong❌
+                            </td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    );
+
 }

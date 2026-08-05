@@ -53,7 +53,7 @@ export default function Produk () {
                     ) : (
                         <tr>
                             <td colSpan="4" className="text-center">
-                                Belum ada produk kosong❌
+                                Belum ada produk kosong
                             </td>
                         </tr>
                     )}
@@ -61,5 +61,5 @@ export default function Produk () {
             </table>
         </div>
     );
-
+    
 }

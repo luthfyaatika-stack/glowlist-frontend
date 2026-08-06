@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddProduk() {
+    const [kategori, setKategori] = useState([])
     const [formData, setFormData] = useState({
         judul: "",
         deskripsi: "",
@@ -35,6 +36,13 @@ export default function AddProduk() {
             alert("Terjadi kesalahan saat menambah produk❌");
         }
     }
+
+    useEffect(() => {
+    fetch("http://localhost:3001/kategori")
+    .then ((res) => res.json())
+    .then ((data) => setKategori(data))
+    .then ((err) => console.error(err));
+    }, [])
 
     return (
         <div className="container mt-4">
@@ -78,17 +86,24 @@ export default function AddProduk() {
                 </div>
 
                 <div className="mb-3">
-                    <label className="form-label">ID Kategori</label>
-                    <input
-                       type="number"
-                       name="id_kategori"
-                       value={formData.id_kategori}
-                       onChange={handleChange}
-                       className="form-control"
-                       placeholder="Masukkan ID kategori"
-                       />
+                    <label className="form-label">Kategori</label>
+                    <select
+                    name="id_kategor"
+                    value={formData.id_kategori}
+                    onChange={handleChange}
+                    className="form-select"
+                    required>
+                        <option value="">Pilih Kategori</option>
+                        {kategori.map((item) => (
+                            <option
+                            key={item.id_kategori}
+                            value={item.id_kategori}>
+                                {item.kategori}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-
+                
                 <button type="submit" className="btn btn-success">
                     Simpan
                 </button>

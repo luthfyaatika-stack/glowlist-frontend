@@ -1,5 +1,6 @@
 // Produk.jsx
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function Produk () {
     const [produk, setProduk] = useState([]);
@@ -31,7 +32,7 @@ export default function Produk () {
                 <h2>Daftar Produk GlowList💅</h2>
                 <Link to="/produk/tambah" className="btn btn-primary">
                     + Tambah Produk
-                    </Link>
+                </Link>
             </div>
 
             <table className="table table-bordered table-striped">

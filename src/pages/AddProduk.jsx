@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./AddProduk.css";
 
 export default function AddProduk() {
     const [kategori, setKategori] = useState([]);
@@ -61,7 +62,6 @@ export default function AddProduk() {
             data.append("harga", formData.harga);
             data.append("id_kategori", formData.id_kategori);
 
-            // Upload foto jika dipilih
             if (file) {
                 data.append("file", file);
             }
@@ -82,7 +82,7 @@ export default function AddProduk() {
                 );
             }
 
-            alert("Produk berhasil ditambahkan 👌");
+            alert("Produk berhasil ditambahkan 💗");
 
             navigate("/produk");
 
@@ -93,131 +93,195 @@ export default function AddProduk() {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="add-product-page">
 
-            <h2 className="mb-3">
-                Tambah Produk 👀
-            </h2>
-
-            <form
-                onSubmit={handleSubmit}
-                className="card p-4 shadow-sm"
-            >
-
-                {/* JUDUL */}
-                <div className="mb-3">
-                    <label className="form-label">
-                        Judul Produk
-                    </label>
-
-                    <input
-                        type="text"
-                        name="judul"
-                        value={formData.judul}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Masukkan nama produk"
-                        required
-                    />
-                </div>
-
-                {/* DESKRIPSI */}
-                <div className="mb-3">
-                    <label className="form-label">
-                        Deskripsi
-                    </label>
-
-                    <textarea
-                        name="deskripsi"
-                        value={formData.deskripsi}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Masukkan deskripsi produk"
-                        rows="4"
-                    />
-                </div>
-
-                {/* HARGA */}
-                <div className="mb-3">
-                    <label className="form-label">
-                        Harga
-                    </label>
-
-                    <input
-                        type="number"
-                        name="harga"
-                        value={formData.harga}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Masukkan harga"
-                        required
-                    />
-                </div>
-
-                {/* KATEGORI */}
-                <div className="mb-3">
-                    <label className="form-label">
-                        Kategori
-                    </label>
-
-                    <select
-                        name="id_kategori"
-                        value={formData.id_kategori}
-                        onChange={handleChange}
-                        className="form-select"
-                        required
-                    >
-                        <option value="">
-                            Pilih Kategori
-                        </option>
-
-                        {kategori.map((item) => (
-                            <option
-                                key={item.id_kategori}
-                                value={item.id_kategori}
-                            >
-                                {item.kategori}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-
-                {/* FOTO */}
-                <div className="mb-3">
-                    <label className="form-label">
-                        Foto Produk
-                    </label>
-
-                    <input
-                        type="file"
-                        name="file"
-                        accept="image/*"
-                        className="form-control"
-                        onChange={(e) =>
-                            setFile(e.target.files[0])
-                        }
-                    />
-                </div>
-
-                {/* TOMBOL */}
+            {/* HEADER */}
+            <div className="add-product-header">
                 <div>
-                    <button
-                        type="submit"
-                        className="btn btn-success"
-                    >
-                        Simpan
-                    </button>
+                    <span className="small-title">
+                        GlowList ✨
+                    </span>
 
-                    <button
-                        type="button"
-                        className="btn btn-secondary ms-2"
-                        onClick={() => navigate("/produk")}
-                    >
-                        Batal
-                    </button>
+                    <h1>
+                        Tambah Produk
+                    </h1>
+
+                    <p>
+                        Yuk tambahkan produk kecantikan baru 💕
+                    </p>
                 </div>
 
-            </form>
+                <div className="header-decoration">
+                    ♡
+                </div>
+            </div>
+
+            {/* FORM CARD */}
+            <div className="add-product-card">
+
+                <div className="form-title">
+                    <div className="title-icon">
+                        ✿
+                    </div>
+
+                    <div>
+                        <h2>Informasi Produk</h2>
+                        <p>Isi data produk dengan lengkap ya!</p>
+                    </div>
+                </div>
+
+                <form onSubmit={handleSubmit}>
+
+                    {/* JUDUL */}
+                    <div className="form-group">
+                        <label>
+                            Nama Produk
+                        </label>
+
+                        <input
+                            type="text"
+                            name="judul"
+                            value={formData.judul}
+                            onChange={handleChange}
+                            placeholder="Contoh: G2 Hydrating Toner"
+                            required
+                        />
+                    </div>
+
+                    {/* DESKRIPSI */}
+                    <div className="form-group">
+                        <label>
+                            Deskripsi
+                        </label>
+
+                        <textarea
+                            name="deskripsi"
+                            value={formData.deskripsi}
+                            onChange={handleChange}
+                            placeholder="Ceritakan sedikit tentang produk ini..."
+                            rows="5"
+                        />
+                    </div>
+
+                    {/* HARGA + KATEGORI */}
+                    <div className="form-row">
+
+                        <div className="form-group">
+                            <label>
+                                Harga
+                            </label>
+
+                            <div className="price-input">
+                                <span>Rp</span>
+
+                                <input
+                                    type="number"
+                                    name="harga"
+                                    value={formData.harga}
+                                    onChange={handleChange}
+                                    placeholder="50000"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label>
+                                Kategori
+                            </label>
+
+                            <select
+                                name="id_kategori"
+                                value={formData.id_kategori}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">
+                                    Pilih Kategori
+                                </option>
+
+                                {kategori.map((item) => (
+                                    <option
+                                        key={item.id_kategori}
+                                        value={item.id_kategori}
+                                    >
+                                        {item.kategori}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                    </div>
+
+                    {/* FOTO */}
+                    <div className="form-group">
+                        <label>
+                            Foto Produk
+                        </label>
+
+                        <div className="upload-box">
+
+                            <div className="upload-icon">
+                                📷
+                            </div>
+
+                            <div className="upload-text">
+                                <strong>
+                                    Pilih foto produk
+                                </strong>
+
+                                <span>
+                                    Format JPG, PNG atau JPEG
+                                </span>
+                            </div>
+
+                            <input
+                                type="file"
+                                name="file"
+                                accept="image/*"
+                                onChange={(e) =>
+                                    setFile(e.target.files[0])
+                                }
+                            />
+
+                        </div>
+
+                        {file && (
+                            <div className="selected-file">
+                                ♡ {file.name}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* BUTTON */}
+                    <div className="form-actions">
+
+                        <button
+                            type="button"
+                            className="btn-cancel"
+                            onClick={() => navigate("/produk")}
+                        >
+                            Batal
+                        </button>
+
+                        <button
+                            type="submit"
+                            className="btn-save"
+                        >
+                            Simpan Produk ✨
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            {/* FOOTER */}
+            <p className="cute-footer">
+                Made with love by GlowList ♡
+            </p>
+
         </div>
     );
 }

@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+}
+
+.add-product-page {
+    min-height: 100vh;
+    padding: 40px 50px;
+    background:
+        radial-gradient(circle at top left, #ffe9f1 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #fce1eb 0%, transparent 30%),
+        #fff8fb;
+    font-family: "Poppins", sans-serif;
+    color: #5f4650;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.add-product-header {
+    max-width: 1000px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.small-title {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #ffe1ec;
+    color: #d47796;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.add-product-header h1 {
+    margin: 0;
+    color: #6b4b57;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.add-product-header p {
+    margin: 6px 0 0;
+    color: #a17e89;
+    font-size: 14px;
+}
+
+.header-decoration {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ffdce8;
+    color: #d66f91;
+    font-size: 34px;
+    box-shadow: 0 10px 25px rgba(214, 111, 145, 0.15);
+}
+
+/* =========================
+   CARD
+========================= */
+
+.add-product-card {
+    max-width: 1000px;
+    margin: auto;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #f8dce6;
+    border-radius: 25px;
+    box-shadow: 0 15px 45px rgba(196, 121, 145, 0.12);
+}
+
+/* =========================
+   FORM TITLE
+========================= */
+
+.form-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 24px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f6e2e8;
+}
+
+.title-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #ffe5ee;
+    color: #d76e91;
+    font-size: 23px;
+}
+
+.form-title h2 {
+    margin: 0;
+    color: #664a55;
+    font-size: 19px;
+}
+
+.form-title p {
+    margin: 4px 0 0;
+    color: #aa8a94;
+    font-size: 13px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #70535e;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    border: 1px solid #f0d5df;
+    border-radius: 13px;
+    background: #fffafd;
+    color: #604954;
+    padding: 13px 15px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #c7aab4;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #e89bb5;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(232, 155, 181, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* =========================
+   ROW
+========================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* =========================
+   HARGA
+========================= */
+
+.price-input {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #f0d5df;
+    border-radius: 13px;
+    background: #fffafd;
+}
+
+.price-input span {
+    padding-left: 15px;
+    color: #d27b99;
+    font-weight: 600;
+}
+
+.price-input input {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 100px;
+    padding: 20px;
+    border: 1.5px dashed #e8a5ba;
+    border-radius: 17px;
+    background: #fff8fb;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.upload-box:hover {
+    background: #fff0f5;
+    border-color: #db829f;
+}
+
+.upload-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #ffe2ed;
+    font-size: 23px;
+}
+
+.upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.upload-text strong {
+    color: #765361;
+    font-size: 14px;
+}
+
+.upload-text span {
+    color: #b497a0;
+    font-size: 12px;
+}
+
+.upload-box input[type="file"] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.selected-file {
+    margin-top: 9px;
+    padding: 9px 13px;
+    border-radius: 10px;
+    background: #fff0f5;
+    color: #c76e8d;
+    font-size: 12px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 23px;
+    border-top: 1px solid #f6e2e8;
+}
+
+.btn-cancel,
+.btn-save {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 23px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-cancel {
+    background: #f7eef1;
+    color: #98747f;
+}
+
+.btn-cancel:hover {
+    background: #f1e1e6;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #e99ab5, #d97899);
+    color: white;
+    box-shadow: 0 8px 18px rgba(217, 120, 153, 0.22);
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 11px 23px rgba(217, 120, 153, 0.28);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.cute-footer {
+    margin: 22px 0 0;
+    text-align: center;
+    color: #bd9ba7;
+    font-size: 12px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .add-product-page {
+        padding: 25px 15px;
+    }
+
+    .add-product-header h1 {
+        font-size: 25px;
+    }
+
+    .header-decoration {
+        width: 55px;
+        height: 55px;
+        font-size: 27px;
+    }
+
+    .add-product-card {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancel,
+    .btn-save {
+        width: 100%;
+    }
+}
